@@ -11,8 +11,9 @@
 # Cleanup
 
 from __future__ import absolute_import, division, print_function, unicode_literals
-import random, time, os
+import time
 import pi3d
+import demo # If pi3d isn't installed
 
 #####
 # Vars, will be loaded from config in the future.
@@ -61,13 +62,13 @@ change_time = 0
 i = 0
 # Looping Slideshow
 while display.loop_running():
-    time = time.time()
-    if time > change_time:
+    time_ = time.time()
+    if time_ > change_time:
         # Change slide
         fade = 0
         # Put the old foreground to the back
         foreground_slide = background_slide
-        change_time = time + delay
+        change_time = time_ + delay
 #        slide = tex_load(slides[slide_num])
         # Load Background
         background_slide = tex_load(slides[i])
