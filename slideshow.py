@@ -1,6 +1,7 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 # Copyright © 2018 Mark Williams
 # slideshow.py
-#!/usr/bin/python
 
 # Pull config vars from slideshow.cfg file
 # Search directories
