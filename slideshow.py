@@ -28,6 +28,7 @@ num_slides = slides.__len__()
 delay = 20
 # Time to fade, in s
 fade_time = 1
+fade_step = 1.0 / (fps / fade_time)
 
 # Screen Display size
 height = 1920
@@ -78,6 +79,12 @@ while display.loop_running():
         canvas.unif[48:54] = canvas.unif[42:48]  # need to pass shader dimensions for both textures
         canvas.set_2d_size(width, height, 0, 0)
         i += 1
+
+    if fade < 1.0:
+        fade += fade_step
+        if fade > 1.0:
+            fade = 1.0
+    canvas.unif[44] = fade
 
     # Draw Canvas
     canvas.draw()
