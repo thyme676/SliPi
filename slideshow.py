@@ -46,21 +46,6 @@ def tex_load(file_name):
     return slide
 
 
-'''if not os.path.isfile(fname):
-    return None
-  tex = pi3d.Texture(fname, blend=True, mipmap=MIPMAP, m_repeat=True)
-  xrat = DISPLAY.width/tex.ix
-  yrat = DISPLAY.height/tex.iy
-  if yrat < xrat:
-    xrat = yrat
-  wi, hi = tex.ix * xrat, tex.iy * xrat
-  xi = (DISPLAY.width - wi)/2
-  yi = (DISPLAY.height - hi)/2
-  slide.tex = tex
-  slide.dimensions = (wi, hi, xi, yi)
-return slide
-'''
-
 # Create the display and initalize the canvas
 display = pi3d.Display.create(background=(0, 0, 0, 1), frames_per_second=fps)
 canvas = pi3d.Canvas()
