@@ -19,7 +19,7 @@ import pi3d
 #####
 
 fps = 30
-shader = 'pi3d.Shader("shaders/blend_bump)'
+shader = pi3d.Shader("shaders/blend_bump")
 mipmap = 'false'
 slides = ['image1.png', 'image.png']
 num_slides = slides.__len__()
