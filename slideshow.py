@@ -53,7 +53,8 @@ canvas = pi3d.Canvas()
 canvas.set_shader(shader)
 
 # Setup the first slide as background
-background_slide = slides[0]
+background_slide = tex_load(slides[0])
+
 
 change_time = 0
 # change_time = time + delay
