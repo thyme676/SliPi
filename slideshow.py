@@ -29,8 +29,8 @@ delay = 20
 fade_time = 1
 
 # Screen Display size
-height = '1920'
-width = '1080'
+height = 1920
+width = 1080
 fade_step = 1.0 / (fps * fade_time)
 
 
@@ -48,7 +48,7 @@ def tex_load(file_name):
 
 
 # Create the display and initalize the canvas
-display = pi3d.Display.create(background=(0, 0, 0, 1), frames_per_second=fps)
+display = pi3d.Display.create(background=(0.0, 0.0, 0.0, 1.0), frames_per_second=fps)
 canvas = pi3d.Canvas()
 canvas.set_shader(shader)
 
@@ -73,7 +73,7 @@ while display.loop_running():
         background_slide = tex_load(slides[i])
         # ?? Needed ??
         canvas.set_draw_details(canvas.shader, [foreground_slide.tex, background_slide.tex])  # reset two textures
-        canvas.set_2d_size(width, height, 0, 0)
+        canvas.set_2d_size(width, height, 0.0, 0.0)
         canvas.unif[48:54] = canvas.unif[42:48]  # need to pass shader dimensions for both textures
         canvas.set_2d_size(width, height, 0, 0)
         i += 1
