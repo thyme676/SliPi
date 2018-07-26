@@ -71,7 +71,7 @@ while display.loop_running():
         # Load Background
         background_slide = tex_load(slides[i])
         # ?? Needed ??
-        canvas.set_draw_details(canvas.shader, [sfg.tex, sbg.tex])  # reset two textures
+        canvas.set_draw_details(canvas.shader, [foreground_slide.tex, background_slide.tex])  # reset two textures
         canvas.set_2d_size(width, height, 0, 0)
         canvas.unif[48:54] = canvas.unif[42:48]  # need to pass shader dimensions for both textures
         canvas.set_2d_size(width, height, 0, 0)
