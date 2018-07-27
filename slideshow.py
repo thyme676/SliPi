@@ -33,7 +33,6 @@ fade_step = 1.0 / (fps / fade_time)
 # Screen Display size
 height = 1920
 width = 1080
-fade_step = 1.0 / (fps * fade_time)
 
 
 class Slide(object):
@@ -46,6 +45,7 @@ def tex_load(file_name):
     slide = Slide()
     tex = pi3d.Texture(file_name, blend=True, mipmap=mipmap, m_repeat=True)
     slide.tex = tex
+    # Need to properly compute xi yi, xrat. I think they should be 1, not 0 if screen perfect
     return slide
 
 
@@ -74,7 +74,7 @@ while display.loop_running():
         # Load Background
         background_slide = tex_load(slides[i])
         # ?? Needed ??
-        canvas.set_draw_details(canvas.shader, [foreground_slide.tex, background_slide.tex])  # reset two textures
+        canvas.set_draw_details(canvas.shader, [foreground_slide.texture, background_slide.texture])  # reset two textures
         canvas.set_2d_size(width, height, 0.0, 0.0)
         canvas.unif[48:54] = canvas.unif[42:48]  # need to pass shader dimensions for both textures
         canvas.set_2d_size(width, height, 0, 0)
