@@ -41,10 +41,9 @@ class Slide(object):
 
 
 def tex_load(file_name):
-    # Initalize a slide object
+    # Initialize a slide object
     slide = Slide()
-    tex = pi3d.Texture(file_name, blend=True, mipmap=mipmap, m_repeat=True)
-    slide.texture = tex
+    slide.texture = pi3d.Texture(file_name, blend=True, mipmap=mipmap, m_repeat=True)
     # Need to properly compute xi yi, xrat. I think they should be 1, not 0 if screen perfect
     return slide
 
