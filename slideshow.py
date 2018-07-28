@@ -44,7 +44,6 @@ def tex_load(file_name):
     # Initialize a slide object
     slide = Slide()
     slide.texture = pi3d.Texture(file_name, blend=True, mipmap=mipmap, m_repeat=True)
-    # Need to properly compute xi yi, xrat. I think they should be 1, not 0 if screen perfect
     return slide
 
 
@@ -74,9 +73,9 @@ while display.loop_running():
         background_slide = tex_load(slides[i])
         # ?? Needed ??
         canvas.set_draw_details(canvas.shader, [foreground_slide.texture, background_slide.texture])  # reset two textures
-        canvas.set_2d_size(width, height, 0.0, 0.0)
+        canvas.set_2d_size(width, height, 1.0, 1.0)
         canvas.unif[48:54] = canvas.unif[42:48]  # need to pass shader dimensions for both textures
-        canvas.set_2d_size(width, height, 0.0, 0.0)
+        canvas.set_2d_size(width, height, 1.0, 1.0)
         i += 1
 
     if fade < 1.0:
