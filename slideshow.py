@@ -28,7 +28,7 @@ num_slides = slides.__len__()
 delay = 20
 # Time to fade, in s
 fade_time = 1
-fade_step = 1.0 / (fps / fade_time)
+fade_step = 1.0 / (fps * fade_time)
 
 # Screen Display size
 height = 1920
