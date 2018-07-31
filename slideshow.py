@@ -32,7 +32,7 @@ fade_step = 1.0 / (fps * fade_time)
 # Screen Display size
 height = 1080
 width = 1920
-tk_windows = False
+
 
 class Slide(object):
     def __int__(self):
@@ -46,8 +46,8 @@ def tex_load(file_name):
     return slide
 
 
-# Create the display and initalize the canvas
-display = pi3d.Display.create(background=(0.0, 0.0, 0.0, 1.0), frames_per_second=fps, tk=tk_windows)
+# Create the display and initialize the canvas
+display = pi3d.Display.create(background=(0.0, 0.0, 0.0, 1.0), frames_per_second=fps, tk=False)
 shader = pi3d.Shader("shaders/blend_bump")
 canvas = pi3d.Canvas()
 canvas.set_shader(shader)
@@ -68,10 +68,8 @@ while display.loop_running():
         # Put the old foreground to the back
         foreground_slide = background_slide
         change_time = time_ + delay
-#        slide = tex_load(slides[slide_num])
         # Load Background
         background_slide = tex_load(slides[i])
-        # ?? Needed ??
         canvas.set_draw_details(canvas.shader, [foreground_slide.texture, background_slide.texture])  # reset two textures
         canvas.set_2d_size(width, height, 1.0, 1.0)
         canvas.unif[48:54] = canvas.unif[42:48]  # need to pass shader dimensions for both textures
