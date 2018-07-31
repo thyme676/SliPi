@@ -20,7 +20,6 @@ import pi3d
 #####
 
 fps = 30
-shader = pi3d.Shader("shaders/blend_bump")
 mipmap = False
 slides = ['image1.png', 'image2.png']
 num_slides = slides.__len__()
@@ -49,6 +48,7 @@ def tex_load(file_name):
 
 # Create the display and initalize the canvas
 display = pi3d.Display.create(background=(0.0, 0.0, 0.0, 1.0), frames_per_second=fps, tk=tk_windows)
+shader = pi3d.Shader("shaders/blend_bump")
 canvas = pi3d.Canvas()
 canvas.set_shader(shader)
 
