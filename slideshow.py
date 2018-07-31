@@ -30,8 +30,8 @@ fade_time = 1
 fade_step = 1.0 / (fps * fade_time)
 
 # Screen Display size
-height = 1920
-width = 1080
+height = 1080
+width = 1920
 tk_windows = False
 
 class Slide(object):
