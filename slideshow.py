@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Copyright © 2018 Mark Williams
 # slideshow.py
@@ -13,7 +13,6 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 import time
 import pi3d
-#import demo # If pi3d isn't installed
 
 #####
 # Vars, will be loaded from config in the future.
