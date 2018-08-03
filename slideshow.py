@@ -22,10 +22,8 @@ fps = 30
 mipmap = False
 slides = ['image1.png', 'image2.png']
 num_slides = slides.__len__()
-# Time per slide, in s
-delay = 20
-# Time to fade, in s
-fade_time = 1
+delay = 20      # Time per slide, in s
+fade_time = 1   # Time to fade, in s
 fade_step = 1.0 / (fps * fade_time)
 
 # Screen Display size
