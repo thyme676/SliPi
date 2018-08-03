@@ -33,11 +33,17 @@ height = 1080
 width = 1920
 
 
+# Slide class
 class Slide(object):
     def __int__(self):
         self.texture = None
 
 
+#############
+# Functions
+#############
+
+# Load Slides from file_name.
 def tex_load(file_name):
     # Initialize a slide object
     slide = Slide()
@@ -54,10 +60,11 @@ canvas.set_shader(shader)
 # Setup the first slide as background
 background_slide = tex_load(slides[0])
 
-
+# Setup to trigger first slide.
 change_time = 0
 # change_time = time + delay
 i = 0
+
 # Looping Slideshow
 while display.loop_running():
     time_ = time.time()
