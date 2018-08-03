@@ -5,7 +5,7 @@ Hardware accelerated slideshow for the Raspberry Pi using the Pi3d library.
 After cloning repo install the requirements with:
 `pip3 install -r requirements.txt`
 
-### If using virtual env
+**If using virtual env**
 1. Create virtual environment
 `virtualenv -p python3 slideshow_env`
 
