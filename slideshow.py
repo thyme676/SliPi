@@ -10,12 +10,12 @@
 # Check for new slides
 # Cleanup
 
-from __future__ import absolute_import, division, print_function, unicode_literals
 import time, pi3d
 from ruamel.yaml import YAML
 
+
 #####
-# Vars, will be loaded from config in the future.
+# Default Variables
 #####
 
 fps = 30
@@ -29,6 +29,12 @@ fade_step = 1.0 / (fps * fade_time)
 # Screen Display size
 height = 1080
 width = 1920
+
+
+#####
+# Read variables from config.yaml
+#####
+# First check if the config exists
 
 
 # Slide class
