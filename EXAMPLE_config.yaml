@@ -1,0 +1,8 @@
+#Example YAML file for configurations SliPi
+#Rename to config.yaml to use.
+fps: 30
+mipmap: False
+delay: 5
+fade_time: 1
+width: 1920
+height: 1020
