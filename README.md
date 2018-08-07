@@ -14,3 +14,13 @@ After cloning repo install the requirements with:
 
 3. Install the requirements
 `pip3 install -r requirements.txt`
+
+
+## Running:
+After installing, go inside the SliPi directory
+`cd SliPi`
+
+Then Rename EXAMPLE_config.yaml to config.yaml
+`mv EXAMPLE_config.yaml config.yaml`
+
+Make any changes to this file to change settings.
