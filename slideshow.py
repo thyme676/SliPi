@@ -27,8 +27,8 @@ fade_time = 1   # Time to fade, in s
 fade_step = 1.0 / (fps * fade_time)
 
 # Screen Display size
-height = 1080
 width = 1920
+height = 1080
 
 
 #####
