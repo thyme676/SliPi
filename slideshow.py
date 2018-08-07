@@ -10,7 +10,7 @@
 # Check for new slides
 # Cleanup
 
-import time, pi3d
+import time, pi3d, sys
 from ruamel.yaml import YAML
 
 
@@ -32,9 +32,29 @@ width = 1920
 
 
 #####
-# Read variables from config.yaml
+# Read variables from config.yaml,
+# First checking if config.yaml exists.
 #####
-# First check if the config exists
+yaml = YAML()
+with open("config.yaml", 'r') as stream:
+    try:
+        configs = yaml.load(stream)
+#        print(configs)
+        if configs[fps]:
+            fps = configs[fps]
+        if configs[mipmap]:
+            mipmap = configs[mipmap]
+        if configs[delay]:
+            delay = configs[delay]
+        if configs[fade_time]:
+            fade_time = configs[fade_time]
+            fade_step = 1.0 / (fps * fade_time)
+        if configs[width]:
+            width = configs[width]
+        if configs[height]:
+            height = configs[width]
+    except yaml.YAMLError as error:
+        print(error)
 
 
 # Slide class
