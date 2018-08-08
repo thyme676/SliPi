@@ -53,7 +53,7 @@ with open("config.yaml", 'r') as stream:
         if configs['width']:
             width = configs['width']
         if configs['height']:
-            height = configs['width']
+            height = configs['height']
         if configs['slide_directory']:
             slide_directory = configs['slide_directory']
     except yaml.YAMLError as error:
