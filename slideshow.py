@@ -10,7 +10,7 @@
 # Check for new slides
 # Cleanup
 
-import time, pi3d, sys
+import time, pi3d, os
 import ruamel.yaml as yaml
 
 
@@ -20,7 +20,7 @@ import ruamel.yaml as yaml
 
 fps = 30
 mipmap = False
-slides = ['image1.png', 'image2.png']
+slides = []
 num_slides = slides.__len__()
 delay = 20      # Time per slide, in s
 fade_time = 1   # Time to fade, in s
@@ -29,6 +29,9 @@ fade_step = 1.0 / (fps * fade_time)
 # Screen Display size
 width = 1920
 height = 1080
+
+# Slideshow directory
+slide_directory = "./"
 
 
 #####
@@ -51,6 +54,8 @@ with open("config.yaml", 'r') as stream:
             width = configs['width']
         if configs['height']:
             height = configs['width']
+        if configs['slide_directory']:
+            slide_directory = configs['slide_directory']
     except yaml.YAMLError as error:
         print(error)
 
@@ -72,6 +77,16 @@ def tex_load(file_name):
     slide.texture = pi3d.Texture(file_name, blend=True, mipmap=mipmap, m_repeat=True)
     return slide
 
+# Add .jpg and .png files to the slide list.
+def get_slides(slide_list, directory):
+    for file in os.listdir(directory):
+        if file.endswith(".png") or file.endswith(".jpg"):
+           slide_list.append(file)
+    return slide_list
+
+
+# Add all the slides to the list
+get_slides(slides, slide_directory)
 
 # Create the display and initialize the canvas
 display = pi3d.Display.create(background=(0.0, 0.0, 0.0, 1.0), frames_per_second=fps, tk=False)
