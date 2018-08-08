@@ -40,7 +40,7 @@ slide_directory = "./"
 #####
 with open("config.yaml", 'r') as stream:
     try:
-        configs = yaml.load(stream)
+        configs = yaml.safe_load(stream)
         if configs['fps']:
             fps = configs['fps']
         if configs['mipmap']:
