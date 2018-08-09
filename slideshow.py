@@ -74,6 +74,8 @@ class Slide(object):
 def tex_load(file_name):
     # Initialize a slide object
     slide = Slide()
+    if file_name is None:
+        print('No slide to load')
     slide.texture = pi3d.Texture(file_name, blend=True, mipmap=mipmap, m_repeat=True)
     return slide
 
