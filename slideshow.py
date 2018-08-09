@@ -82,6 +82,8 @@ def get_slides(slide_list, directory):
     for file in os.listdir(directory):
         if file.endswith(".png") or file.endswith(".jpg"):
            slide_list.append(file)
+    if slide_list.__len__() == 0:
+        print('No Slides in directory:' + directory)
     return slide_list
 
 
