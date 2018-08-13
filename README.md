@@ -1,6 +1,10 @@
 # SliPi
 Hardware accelerated slideshow for the Raspberry Pi using the Pi3d library.
 
+Copyright © 2018 Mark Williams
+Also feel free to submit an issue!
+
+
 ## Installing
 After cloning repo install the requirements with:
 `pip3 install -r requirements.txt`
