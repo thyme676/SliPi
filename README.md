@@ -4,6 +4,12 @@ Hardware accelerated slideshow for the Raspberry Pi using the Pi3d library.
 Copyright © 2018 Mark Williams
 Also feel free to submit an issue!
 
+# Author
+Mark Williams
+
+# License
+
+This project is licensed under the GPLv3 - see the LICENSE file for details
 
 ## Installing
 After cloning repo install the requirements with:
