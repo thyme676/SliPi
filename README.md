@@ -17,7 +17,7 @@ Mark Williams
 This project is licensed under the GPLv3 - see the LICENSE file for details.
 
 Included shaders in shaders directory are subject to MIT license, see included LICENSE file
-in shaders directory for more information. Copywrite on these files belongs to its respective
+in shaders directory for more information. Copyright on these files belongs to its respective
 contributors, see LICENSE file in shaders directory for more details.
 
 ## Installing
@@ -49,4 +49,4 @@ Make any changes to this file to change settings.
 Outstanding features are:
 - Dynamically reload the slideshow list on filesystem event.
 - Attempt to reload the slideshow on GL error.
-- Pull slides from multiple directories, in weighted ammounts.
+- Pull slides from multiple directories, in weighted amounts.
