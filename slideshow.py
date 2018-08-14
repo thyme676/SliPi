@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Copyright © 2018 Mark Williams
+# licensed under GPLv3, see LICENSE for details
 # slideshow.py
 
 # Pull config vars from slideshow.cfg file
