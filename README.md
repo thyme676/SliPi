@@ -10,10 +10,10 @@ Screen size, fade time and more are configurable by using config.yaml
 Copyright © 2018 Mark Williams
 Also feel free to submit an issue!
 
-# Author
+## Author
 Mark Williams
 
-# License
+## License
 
 This project is licensed under the GPLv3 - see the LICENSE file for details.
 
@@ -46,7 +46,7 @@ Then Rename EXAMPLE_config.yaml to config.yaml
 Make any changes to this file to change settings.
 
 
-# TODO
+## TODO
 Outstanding features are:
 - Dynamically reload the slideshow list on filesystem event.
 - Attempt to reload the slideshow on GL error.
