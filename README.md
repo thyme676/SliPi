@@ -1,5 +1,5 @@
 # SliPi
-Hardware accelerated slideshow for the Raspberry Pi using the Pi3d library.
+Python 3 hardware accelerated slideshow for the Raspberry Pi using the Pi3d library.
 
 SliPi was designed to provide a robust solution to running a slideshow info display off
 of a Raspberry Pi. This project uses the Pi3d library and shaders included in the pi3d demo library.
