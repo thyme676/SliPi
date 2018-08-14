@@ -9,7 +9,11 @@ Mark Williams
 
 # License
 
-This project is licensed under the GPLv3 - see the LICENSE file for details
+This project is licensed under the GPLv3 - see the LICENSE file for details.
+
+Included shaders in shaders directory are subject to MIT license, see included LICENSE file
+in shaders directory for more information. Copywrite on these files belongs to its respective
+contributors, see LICENSE file in shaders directory for more details.
 
 ## Installing
 After cloning repo install the requirements with:
