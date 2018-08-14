@@ -3,8 +3,9 @@ Python 3 hardware accelerated slideshow for the Raspberry Pi using the Pi3d libr
 
 SliPi was designed to provide a robust solution to running a slideshow info display off
 of a Raspberry Pi. This project uses the Pi3d library and shaders included in the pi3d demo library.
-Together with this python 3 project a series of slides will continuously display. Screen size,
-fade time and more are configurable by using config.yaml (Example included as EXAMPLE_config.yaml).
+Together with this python 3 project a series of png or jpg inages will continuously display.
+Screen size, fade time and more are configurable by using config.yaml
+(Example included as EXAMPLE_config.yaml).
 
 Copyright © 2018 Mark Williams
 Also feel free to submit an issue!
