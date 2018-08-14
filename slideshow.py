@@ -11,7 +11,7 @@
 # Check for new slides
 # Cleanup
 
-import time, pi3d, sys, watchdog
+import time, pi3d, sys, watchdog, os
 import ruamel.yaml as yaml
 
 
