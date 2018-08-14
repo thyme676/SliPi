@@ -123,7 +123,7 @@ while display.loop_running():
         canvas.unif[48:54] = canvas.unif[42:48]  # need to pass shader dimensions for both textures
         canvas.set_2d_size(width, height, 1.0, 1.0)
         i += 1
-        if i > slides.__len__():
+        if i+1 > slides.__len__(): #loop at end of slide array
             i = 0
 
     if fade < 1.0:
