@@ -49,7 +49,7 @@ with open("config.yaml", 'r') as stream:
         if configs['delay']:
             delay = configs['delay']
         if configs['check_delay']:
-            delay = configs['check_delay']
+            check_delay = configs['check_delay']
         if configs['fade_time']:
             fade_time = configs['fade_time']
             fade_step = 1.0 / (fps * fade_time)
