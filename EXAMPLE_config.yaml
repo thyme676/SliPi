@@ -3,6 +3,7 @@
 fps: 30
 mipmap: False
 delay: 5
+check_delay: 900
 fade_time: 1
 width: 1920
 height: 1020

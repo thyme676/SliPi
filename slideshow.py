@@ -11,7 +11,7 @@
 # Check for new slides
 # Cleanup
 
-import time, pi3d, sys, watchdog, os
+import time, pi3d, sys, watchdog, os, stat
 import ruamel.yaml as yaml
 
 
@@ -26,7 +26,7 @@ num_slides = slides.__len__()
 delay = 20      # Time per slide, in s
 fade_time = 1   # Time to fade, in s
 fade_step = 1.0 / (fps * fade_time)
-
+check_delay = 900 # Time before renewing slide list, in s (900s is 15 min)
 # Screen Display size
 width = 1920
 height = 1080
@@ -48,6 +48,8 @@ with open("config.yaml", 'r') as stream:
             mipmap = configs['mipmap']
         if configs['delay']:
             delay = configs['delay']
+        if configs['check_delay']:
+            delay = configs['check_delay']
         if configs['fade_time']:
             fade_time = configs['fade_time']
             fade_step = 1.0 / (fps * fade_time)
@@ -107,6 +109,9 @@ change_time = 0
 # change_time = time + delay
 i = 0
 
+# Setup the modification time for the slide directory
+modified_time = os.stat("slide_directory").st_mtime
+
 # Looping Slideshow
 while display.loop_running():
     time_ = time.time()
@@ -134,6 +139,14 @@ while display.loop_running():
 
     # Draw Canvas
     canvas.draw()
+
+    if time > check_time or os.stat("slide_directory").st_mtime > modified_time or not slides[i].is_file():
+        check_time = time + check_delay
+        # Add all the slides to the list
+        get_slides(slides, slide_directory)
+        # Setup the first slide as background
+        background_slide = tex_load(slides[0])
+
 
 # Clean up
 display.destroy()
