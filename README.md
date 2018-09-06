@@ -48,6 +48,6 @@ Make any changes to this file to change settings.
 
 ## TODO
 Outstanding features are:
-- Dynamically reload the slideshow list on filesystem event.
+- ~~Dynamically reload the slideshow list on filesystem event.~~
 - Attempt to reload the slideshow on GL error.
 - Pull slides from multiple directories, in weighted amounts.
