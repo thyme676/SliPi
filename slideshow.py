@@ -112,6 +112,9 @@ i = 0
 # Setup the modification time for the slide directory
 modified_time = os.stat(slide_directory).st_mtime
 
+# Setup check_time for next time to update slide list
+check_time = time + check_delay
+
 # Looping Slideshow
 while display.loop_running():
     time_ = time.time()
