@@ -110,7 +110,7 @@ change_time = 0
 i = 0
 
 # Setup the modification time for the slide directory
-modified_time = os.stat("slide_directory").st_mtime
+modified_time = os.stat(slide_directory).st_mtime
 
 # Looping Slideshow
 while display.loop_running():
@@ -140,7 +140,7 @@ while display.loop_running():
     # Draw Canvas
     canvas.draw()
 
-    if time > check_time or os.stat("slide_directory").st_mtime > modified_time or not slides[i].is_file():
+    if time > check_time or os.stat(slide_directory).st_mtime > modified_time or not slides[i].is_file():
         check_time = time + check_delay
         # Add all the slides to the list
         get_slides(slides, slide_directory)
