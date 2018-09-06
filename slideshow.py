@@ -118,6 +118,15 @@ check_time = time.time() + check_delay
 # Looping Slideshow
 while display.loop_running():
     time_ = time.time()
+    if time.time() > check_time or os.stat(slide_directory).st_mtime > modified_time or not os.path.isfile(slides[i]):
+        # Setup the modification time for the slide directory
+        modified_time = os.stat(slide_directory).st_mtime
+        check_time = time.time() + check_delay
+        # Add all the slides to the list
+        get_slides(slides, slide_directory)
+        # Setup the first slide as background
+        background_slide = tex_load(slides[0])
+        i = 0
     if time_ > change_time:
         # Change slide
         fade = 0
@@ -143,15 +152,6 @@ while display.loop_running():
     # Draw Canvas
     canvas.draw()
 
-    if time.time() > check_time or os.stat(slide_directory).st_mtime > modified_time or not os.path.isfile(slides[i]):
-        # Setup the modification time for the slide directory
-        modified_time = os.stat(slide_directory).st_mtime
-        check_time = time.time() + check_delay
-        # Add all the slides to the list
-        get_slides(slides, slide_directory)
-        # Setup the first slide as background
-        background_slide = tex_load(slides[0])
-        i = 0
 
 # Clean up
 display.destroy()
