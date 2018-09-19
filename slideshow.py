@@ -59,6 +59,8 @@ with open("config.yaml", 'r') as stream:
             height = configs['height']
         if configs['slide_directory']:
             slide_directory = configs['slide_directory']
+            if not slide_directory.endswith("/"):
+                slide_directory += "/"
     except yaml.YAMLError as error:
         print(error)
 
