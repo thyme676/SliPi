@@ -3,11 +3,12 @@ Python 3 hardware accelerated slideshow for the Raspberry Pi using the Pi3d libr
 
 SliPi was designed to provide a robust solution to running a slideshow info display off
 of a Raspberry Pi. This project uses the Pi3d library and shaders included in the pi3d demo library.
-Together with this python 3 project a series of png or jpg inages will continuously display.
+Together with this python 3 project a series of png or jpg images will continuously display.
+Recent versions can also play .mp4 videos using omxplayer.
 Screen size, fade time and more are configurable by using config.yaml
 (Example included as EXAMPLE_config.yaml).
 
-Copyright © 2018 Mark Williams
+Copyright © 2019 Mark Williams
 Also feel free to submit an issue!
 
 ## Author
@@ -22,26 +23,34 @@ in shaders directory for more information. Copyright on these files belongs to i
 contributors, see LICENSE file in shaders directory for more details.
 
 ## Installing
+To play videos in the mp4 format omxplayer must be installed.
+On ubuntu use apt to install it:
+`$ sudo apt install omxplayer`
+Otherwise videos will not play.
+
+Then clone the repo: 
+`$ git clone https://github.com/thyme676/SliPi.git`
+
 After cloning repo install the requirements with:
-`pip3 install -r requirements.txt`
+`$ pip3 install -r requirements.txt`
 
 **If using virtual env**
 1. Create virtual environment
-`virtualenv -p python3 slideshow_env`
+`$ virtualenv -p python3 slideshow_env`
 
 2. Activate virtual environment
-`source slideshow_env/activate`
+`$ source slideshow_env/activate`
 
 3. Install the requirements
-`pip3 install -r requirements.txt`
+`$ pip3 install -r requirements.txt`
 
 
 ## Running:
 After installing, go inside the SliPi directory
-`cd SliPi`
+`$ cd SliPi`
 
 Then Rename EXAMPLE_config.yaml to config.yaml
-`mv EXAMPLE_config.yaml config.yaml`
+`$ mv EXAMPLE_config.yaml config.yaml`
 
 Make any changes to this file to change settings.
 
