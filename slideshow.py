@@ -139,12 +139,8 @@ while display.loop_running():
     if time_ > change_time:
         if slides[i].endswith(".mp4"): # If next item is a video
             subprocess.call("omxplayer --blank --aspect-mode stretch " + slides[i], shell=True)
-            fade = 0
-            change_time = 0 # trigger a new slide right after video
-            i += 1
-            if i+1 > slides.__len__(): #loop at end of slide array
-                i = 0
-            continue
+            # If want to make transition a little nicer, add in the lines below to automatically transition to new slide
+            # And track the previous slide better
         else: #If next item in list is an image
             # Change slide
             fade = 0
