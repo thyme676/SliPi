@@ -141,6 +141,10 @@ while display.loop_running():
             subprocess.call("omxplayer " + slides[i], shell=True)
             fade = 0
             change_time = 0 # trigger a new slide right after video
+            i += 1
+            if i+1 > slides.__len__(): #loop at end of slide array
+                i = 0
+            continue
         else: #If next item in list is an image
             # Change slide
             fade = 0
@@ -159,7 +163,6 @@ while display.loop_running():
         i += 1
         if i+1 > slides.__len__(): #loop at end of slide array
             i = 0
-
     if fade < 1.0:
         fade += fade_step
         if fade > 1.0:
