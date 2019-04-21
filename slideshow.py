@@ -13,6 +13,7 @@
 
 import time, pi3d, os, stat
 import ruamel.yaml as yaml
+import subprocess
 
 
 #####
@@ -87,7 +88,7 @@ def tex_load(file_name):
 # Add .jpg and .png files to the slide list.
 def get_slides(slide_list, directory):
     for file in os.listdir(directory):
-        if file.endswith(".png") or file.endswith(".jpg"):
+        if file.endswith(".png") or file.endswith(".jpg") or file.endswith(".mp4"):
            slide_list.append(directory + file)
     if slide_list.__len__() == 0:
         print('No Slides in directory:' + directory)
@@ -103,9 +104,11 @@ shader = pi3d.Shader("shaders/blend_bump")
 canvas = pi3d.Canvas()
 canvas.set_shader(shader)
 
-# Setup the first slide as background
-background_slide = tex_load(slides[0])
-
+for aslide in slides:
+    if aslide.endswith(".png") or aslide.endswith(".jpg"):
+        # Setup the first slide as background
+        background_slide = tex_load(aslide)
+        break
 # Setup to trigger first slide.
 change_time = 0
 # change_time = time + delay
@@ -127,20 +130,30 @@ while display.loop_running():
         # Add all the slides to the list
         get_slides(slides, slide_directory)
         # Setup the first slide as background
-        background_slide = tex_load(slides[0])
+        for aslide in slides:
+            if aslide.endswith(".png") or aslide.endswith(".jpg"):
+                # Setup the first slide as background
+                background_slide = tex_load(aslide)
+                break
         i = 0
     if time_ > change_time:
-        # Change slide
-        fade = 0
-        # Put the old foreground to the back
-        foreground_slide = background_slide
+        if slides[i].endswith(".mp4"): # If next item is a video
+            subprocess.call("omxplayer " + slides[i], shell=True)
+        else: #If next item in list is an image
+            # Change slide
+            fade = 0
+            # Put the old foreground to the back
+            foreground_slide = background_slide
+            change_time = time_ + delay
+            # Load Background
+            background_slide = tex_load(slides[i])
+            canvas.set_draw_details(canvas.shader, [foreground_slide.texture, background_slide.texture])  # reset two textures
+            canvas.set_2d_size(width, height, 1.0, 1.0)
+            canvas.unif[48:54] = canvas.unif[42:48]  # need to pass shader dimensions for both textures
+            canvas.set_2d_size(width, height, 1.0, 1.0)
+
+        #Update time and position in slideshow
         change_time = time_ + delay
-        # Load Background
-        background_slide = tex_load(slides[i])
-        canvas.set_draw_details(canvas.shader, [foreground_slide.texture, background_slide.texture])  # reset two textures
-        canvas.set_2d_size(width, height, 1.0, 1.0)
-        canvas.unif[48:54] = canvas.unif[42:48]  # need to pass shader dimensions for both textures
-        canvas.set_2d_size(width, height, 1.0, 1.0)
         i += 1
         if i+1 > slides.__len__(): #loop at end of slide array
             i = 0
