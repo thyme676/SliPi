@@ -139,6 +139,7 @@ while display.loop_running():
     if time_ > change_time:
         if slides[i].endswith(".mp4"): # If next item is a video
             subprocess.call("omxplayer " + slides[i], shell=True)
+            continue
         else: #If next item in list is an image
             # Change slide
             fade = 0
