@@ -123,6 +123,7 @@ check_time = time.time() + check_delay
 # Looping Slideshow
 while display.loop_running():
     time_ = time.time()
+
     if time.time() > check_time or os.stat(slide_directory).st_mtime > modified_time or not os.path.isfile(slides[i]):
         # Setup the modification time for the slide directory
         modified_time = os.stat(slide_directory).st_mtime
@@ -134,12 +135,12 @@ while display.loop_running():
             if aslide.endswith(".png") or aslide.endswith(".jpg"):
                 # Setup the first slide as background
                 background_slide = tex_load(aslide)
-                break
         i = 0
     if time_ > change_time:
         if slides[i].endswith(".mp4"): # If next item is a video
             subprocess.call("omxplayer " + slides[i], shell=True)
-            continue
+            fade = 0
+            change_time = 0 # trigger a new slide right after video
         else: #If next item in list is an image
             # Change slide
             fade = 0
