@@ -138,7 +138,7 @@ while display.loop_running():
         i = 0
     if time_ > change_time:
         if slides[i].endswith(".mp4"): # If next item is a video
-            subprocess.call("omxplayer " + slides[i], shell=True)
+            subprocess.call("omxplayer --blank" + slides[i], shell=True)
             fade = 0
             change_time = 0 # trigger a new slide right after video
             i += 1
