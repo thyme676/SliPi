@@ -27,6 +27,7 @@ To play videos in the mp4 format omxplayer must be installed.
 On ubuntu use apt to install it:
 
 `$ sudo apt install omxplayer`
+
 Otherwise videos will not play.
 
 Then clone the repo: 
