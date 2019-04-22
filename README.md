@@ -9,7 +9,7 @@ Screen size, fade time and more are configurable by using config.yaml
 (Example included as EXAMPLE_config.yaml).
 
 Copyright © 2019 Mark Williams
-Also feel free to submit an issue!
+Please submit issues!
 
 ## Author
 Mark Williams
@@ -25,38 +25,49 @@ contributors, see LICENSE file in shaders directory for more details.
 ## Installing
 To play videos in the mp4 format omxplayer must be installed.
 On ubuntu use apt to install it:
+
 `$ sudo apt install omxplayer`
 Otherwise videos will not play.
 
 Then clone the repo: 
+
 `$ git clone https://github.com/thyme676/SliPi.git`
 
-After cloning repo install the requirements with:
+After cloning repo install the requirements
+
 `$ pip3 install -r requirements.txt`
 
 **If using virtual env**
 1. Create virtual environment
+
 `$ virtualenv -p python3 slideshow_env`
 
 2. Activate virtual environment
+
 `$ source slideshow_env/bin/activate`
 
-If successful (slideshow_env) should show before your shell:
+If successful (slideshow_env) should show before your shell
 (slideshow_env) pi@raspberry:~/SliPi $
 
 3. Install the requirements
+
 `$ pip3 install -r requirements.txt`
 
 
 ## Running:
 After installing, go inside the SliPi directory
+
 `$ cd SliPi`
 
 Then Rename EXAMPLE_config.yaml to config.yaml
+
 `$ mv EXAMPLE_config.yaml config.yaml`
 
 Make any changes to this file to change settings.
 
+Start the Slideshow
+
+`python3 slideshow.py`
 
 ## TODO
 Outstanding features are:
