@@ -122,8 +122,6 @@ check_time = time.time() + check_delay
 
 # Looping Slideshow
 while display.loop_running():
-    time_ = time.time()
-
     if time.time() > check_time or os.stat(slide_directory).st_mtime > modified_time or not os.path.isfile(slides[i]):
         # Setup the modification time for the slide directory
         modified_time = os.stat(slide_directory).st_mtime
@@ -136,17 +134,21 @@ while display.loop_running():
                 # Setup the first slide as background
                 background_slide = tex_load(aslide)
         i = 0
-    if time_ > change_time:
+    if time.time() > change_time:
         if slides[i].endswith(".mp4"): # If next item is a video
             subprocess.call("omxplayer --blank --aspect-mode stretch " + slides[i], shell=True)
-            # If want to make transition a little nicer, add in the lines below to automatically transition to new slide
-            # And track the previous slide better
+            # Update time and position in slideshow
+            change_time = time.time() # slide before video will be shown for a second or so, then transitioned to next item.
+            # Could be changed to + delay so the slides is shown for full time.
+            i += 1
+            if i+1 > slides.__len__(): #loop at end of slide array
+                i = 0
         else: #If next item in list is an image
             # Change slide
             fade = 0
             # Put the old foreground to the back
             foreground_slide = background_slide
-            change_time = time_ + delay
+            change_time = time.time() + delay
             # Load Background
             background_slide = tex_load(slides[i])
             canvas.set_draw_details(canvas.shader, [foreground_slide.texture, background_slide.texture])  # reset two textures
@@ -154,11 +156,11 @@ while display.loop_running():
             canvas.unif[48:54] = canvas.unif[42:48]  # need to pass shader dimensions for both textures
             canvas.set_2d_size(width, height, 1.0, 1.0)
 
-        #Update time and position in slideshow
-        change_time = time_ + delay
-        i += 1
-        if i+1 > slides.__len__(): #loop at end of slide array
-            i = 0
+            #Update time and position in slideshow
+            change_time = time.time() + delay
+            i += 1
+            if i+1 > slides.__len__(): #loop at end of slide array
+                i = 0
     if fade < 1.0:
         fade += fade_step
         if fade > 1.0:
