@@ -39,7 +39,10 @@ After cloning repo install the requirements with:
 `$ virtualenv -p python3 slideshow_env`
 
 2. Activate virtual environment
-`$ source slideshow_env/activate`
+`$ source slideshow_env/bin/activate`
+
+If successful (slideshow_env) should show before your shell:
+(slideshow_env) pi@raspberry:~/SliPi $
 
 3. Install the requirements
 `$ pip3 install -r requirements.txt`
