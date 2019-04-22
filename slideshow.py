@@ -112,7 +112,7 @@ for aslide in slides:
 # Setup to trigger first slide.
 change_time = 0
 # change_time = time + delay
-i = 0
+i = 0 # initalize first item in array as the curent element 
 
 # Setup the modification time for the slide directory
 modified_time = os.stat(slide_directory).st_mtime
@@ -138,8 +138,9 @@ while display.loop_running():
         if slides[i].endswith(".mp4"): # If next item is a video
             subprocess.call("omxplayer --blank --aspect-mode stretch " + slides[i], shell=True)
             # Update time and position in slideshow
-            change_time = time.time() # slide before video will be shown for a second or so, then transitioned to next item.
+            change_time = time.time() + delay # slide before video will be shown for a second or so, then transitioned to next item.
             # Could be changed to + delay so the slides is shown for full time.
+            fade = 0
             i += 1
             if i+1 > slides.__len__(): #loop at end of slide array
                 i = 0
