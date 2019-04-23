@@ -9,6 +9,7 @@ Screen size, fade time and more are configurable by using config.yaml
 (Example included as EXAMPLE_config.yaml).
 
 Copyright © 2019 Mark Williams
+
 Please submit issues!
 
 ## Author
@@ -29,6 +30,12 @@ On ubuntu use apt to install it:
 `$ sudo apt install omxplayer`
 
 Otherwise videos will not play.
+
+Another dependency are the dev jpeg libraries
+
+libjpeg8-dev zlib1g-dev
+Install these using apt before proceeding. 
+`$sudo apt install libjpeg8-dev zlib1g-dev`
 
 Then clone the repo: 
 
