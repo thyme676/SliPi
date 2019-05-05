@@ -42,7 +42,7 @@ script_dir = os.path.dirname(os.path.realpath(__file__))
 # Config location
 config_dir = os.path.dirname(os.path.realpath(__file__))+ "/config.yaml"
 # Black image location
-black_img = os.path("/var/tmp/slideshow/black.png")
+black_img = "/var/tmp/slideshow/black.png"
 
 #####
 # Default Variables
