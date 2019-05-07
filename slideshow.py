@@ -137,7 +137,6 @@ def gen_black():
             #size is 100 by 100 pixles
             # Initialize a numpy array
             data = numpy.zeros((100, 100, 3), dtype=numpy.uint8)
-            data[99, 99] = [255, 0, 0]
             img = Image.fromarray(data, 'RGB')
             img.save(black_img)
 
