@@ -163,8 +163,12 @@ def get_slides(config):
                 slide_list.append(os.path.join(directory, slide_file))
     except FileNotFoundError:
         LOGGER.debug("No files in Slide directory")
+        print("No Files in Slide directory")
+        sys.exit(1)
     if slide_list.__len__() == 0:
         LOGGER.error('No displayable Slides or videos in directory: {}'.format(directory))
+        print("No Files in Slide directory")
+        sys.exit(1)
     if CONFIG['order'] == 'sorted':
         slide_list = sorted(slide_list)
 
