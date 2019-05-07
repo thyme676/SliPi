@@ -157,11 +157,14 @@ def get_slides(config):
     except FileNotFoundError:
         LOGGER.debug("Emergency slide directory doesn't exist")
         emergency_list = []
-    for slide_file in os.listdir(directory):
-        if CONFIG['image_ext_regexp'].search(slide_file) or CONFIG['video_ext_regexp'].search(slide_file):
-           slide_list.append(os.path.join(directory, slide_file))
+    try:
+        for slide_file in os.listdir(directory):
+            if CONFIG['image_ext_regexp'].search(slide_file) or CONFIG['video_ext_regexp'].search(slide_file):
+                slide_list.append(os.path.join(directory, slide_file))
+    except FileNotFoundError:
+        LOGGER.debug("No files in Slide directory")
     if slide_list.__len__() == 0:
-        LOGGER.error('No Slides in directory: {}'.format(directory))
+        LOGGER.error('No displayable Slides or videos in directory: {}'.format(directory))
     if CONFIG['order'] == 'sorted':
         slide_list = sorted(slide_list)
 
