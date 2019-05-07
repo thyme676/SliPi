@@ -127,19 +127,19 @@ def tex_load(file_name):
 
 # Generate black image and store it.
 def gen_black():
-    # Initialize a numpy array
-    slide = Slide()
-
     try:
     # Check if folder exists, make it
         if not os.path.exists('/var/tmp/slipi'):
             os.mkdir('/var/tmp/slipi')
-    # Try and save the file
-        #size is 100 by 100 pixles
-        data = numpy.zeros((100, 100, 3), dtype=numpy.uint8)
-        data[99, 99] = [255, 0, 0]
-        img = Image.fromarray(data, 'RGB')
-        img.save(black_img)
+    
+        if not os.path.isfile('/var/tmp/slipi'):
+        # Try and save the file
+            #size is 100 by 100 pixles
+            # Initialize a numpy array
+            data = numpy.zeros((100, 100, 3), dtype=numpy.uint8)
+            data[99, 99] = [255, 0, 0]
+            img = Image.fromarray(data, 'RGB')
+            img.save(black_img)
 
     except Exception as e:
         LOGGER.error("There was a problem saving, {}".format(black_img))
