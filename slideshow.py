@@ -19,6 +19,8 @@ import logging.handlers
 import datetime
 import math
 import argparse 
+from PIL import Image
+import numpy
 
 MY_PID = os.getpid()
 BIN_NAME = os.path.basename(sys.argv[0])
@@ -122,6 +124,26 @@ def tex_load(file_name):
         LOGGER.error("There was a problem loading slide, {}: {}".format(file_name, e))
         slide.texture = pi3d.Texture(black_img, blend=True, mipmap=CONFIG['mipmap'], m_repeat=True)
     return slide
+
+# Generate black image and store it.
+def gen_black(file_name):
+    # Initialize a numpy array
+    slide = Slide()
+
+    try:
+    # Check if folder exists, make it
+        if not os.path.exists(/var/tmp)/slipi:
+            os.mkdir(/var/tmp/slipi)
+    # Try and save the file
+        #size is 100 by 100 pixles
+        data = numpy.zeros((100, 100, 3), dtype=numpy.uint8)
+        data[99, 99] = [255, 0, 0]
+        img = Image.fromarray(data, 'RGB')
+        img.save(black_img)
+
+    except Exception as e:
+        LOGGER.error("There was a problem saving, {}".format(black_img))
+    return True
 
 # Add .jpg and .png files to the slide list.
 def get_slides(config):
