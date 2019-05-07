@@ -167,7 +167,8 @@ def get_slides(config):
         sys.exit(1)
     if slide_list.__len__() == 0:
         LOGGER.error('No displayable Slides or videos in directory: {}'.format(directory))
-        print("No Files in Slide directory")
+        print("Files in Slide directory are not of the correct image or video type.")
+        print("Correct types: .png, .jpg, .jpeg, .mp4, .mpeg4, .mkv.")
         sys.exit(1)
     if CONFIG['order'] == 'sorted':
         slide_list = sorted(slide_list)
