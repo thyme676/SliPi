@@ -126,7 +126,7 @@ def tex_load(file_name):
     return slide
 
 # Generate black image and store it.
-def gen_black(file_name):
+def gen_black():
     # Initialize a numpy array
     slide = Slide()
 
