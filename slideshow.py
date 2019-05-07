@@ -132,8 +132,8 @@ def gen_black(file_name):
 
     try:
     # Check if folder exists, make it
-        if not os.path.exists(/var/tmp)/slipi:
-            os.mkdir(/var/tmp/slipi)
+        if not os.path.exists('/var/tmp/slipi'):
+            os.mkdir('/var/tmp/slipi')
     # Try and save the file
         #size is 100 by 100 pixles
         data = numpy.zeros((100, 100, 3), dtype=numpy.uint8)
@@ -182,6 +182,9 @@ canvas.set_shader(shader)
 
 canvas.set_2d_size(CONFIG['width'], CONFIG['height'], 0, 0)
 canvas.unif[48:54] = canvas.unif[42:48]  # need to pass shader dimensions for both textures
+
+# Generate the black image for smooth startup transition
+gen_black()
 
 for aslide in slides:
    if CONFIG['image_ext_regexp'].search(aslide):
