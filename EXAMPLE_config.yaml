@@ -8,3 +8,10 @@ fade_time: 1
 width: 1920
 height: 1020
 slide_directory: ./
+order: 'sorted'
+synced: True
+shader: 'blend_smooth'
+shader_directory: ./shaders
+image_ext_regexp: '\.(png|jpe?g|gif|bmp)$'
+video_ext_regexp: '\.(mp4|mpeg4|mkv)$'
+emergency_slide_directory: ./emergency
