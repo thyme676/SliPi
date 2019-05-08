@@ -22,5 +22,6 @@ setup(
         'numpy>=1.16',
         'ruamel.yaml>=0.15'
     ],
-    package_data={'SliPi': ['EXAMPLE_config.yaml', 'shaders/*'], 'README.md' },
+    package_data={'SliPi': ['EXAMPLE_config.yaml', 'shaders/*'] },
+    data_files=[('','LICENSE')]
 )
