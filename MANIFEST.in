@@ -1,1 +1,3 @@
-recursive-include *
+recursive-include SliPi/*
+include README.md
+include LICENSE
