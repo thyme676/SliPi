@@ -22,5 +22,6 @@ setup(
         'numpy>=1.16',
         'ruamel.yaml>=0.15'
     ],
+    paclage_data={'SliPi': ['LICENSE', 'SliPi/shaders'] }
     include_package_data=True,
 )
