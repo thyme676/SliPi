@@ -1,4 +1,4 @@
-import setuptools
+import setuptools, find_packages
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -22,4 +22,5 @@ setuptools.setup(
         'numpy>=1.16',
         'ruamel.yaml>=0.15'
     ],
+    include_package_data=True,
 )
