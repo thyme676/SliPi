@@ -1,9 +1,9 @@
-import setuptools, find_packages
+from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-setuptools.setup(
+setup(
     name="SliPi",
     version="3.0",
     author="Mark Williams",
